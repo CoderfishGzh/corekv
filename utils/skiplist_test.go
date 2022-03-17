@@ -23,6 +23,15 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func RandString(len int) string {
+	bytes := make([]byte, len)
+	for i := 0; i < len; i++ {
+		b := r.Intn(26) + 65
+		bytes[i] = byte(b)
+	}
+	return string(bytes)
+}
+
 func TestSkipListBasicCRUD(t *testing.T) {
 	list := NewSkipList(1000)
 
